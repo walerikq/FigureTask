@@ -149,7 +149,7 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Укажите угол поворота:");
-                x = in.nextInt();
+                x = ScannerHelper.getIntFromInput("Введите угол поворота: \n");
                 f.rotate(x);
 
                 break;

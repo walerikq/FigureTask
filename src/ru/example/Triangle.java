@@ -1,8 +1,8 @@
 package ru.example;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Triangle extends Polygon  {
 
