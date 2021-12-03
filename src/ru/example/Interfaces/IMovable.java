@@ -1,4 +1,6 @@
-package ru.example;
+package ru.example.Interfaces;
+
+import ru.example.Point;
 
 import java.util.ArrayList;
 
