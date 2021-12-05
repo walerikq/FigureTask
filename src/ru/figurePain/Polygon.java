@@ -1,8 +1,9 @@
-package ru.example;
+package ru.figurePain;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public abstract class Polygon extends Figure {
+public class Polygon extends Figure {
     public Polygon (ArrayList<Point> points){
         super(points);
         this.calculateArea();
@@ -66,5 +67,24 @@ public abstract class Polygon extends Figure {
         }
         calculateArea();
         calculatePerimetr();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Polygon figure = (Polygon) o;
+        return points.equals(figure.points);
+    }
+
+    //TODO вынести в класс полигон
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "с вершинами в точках: " + points + "\nХарактеристики: " + "\nПериметр: " + perimetr + "\nПлощадь: " + area + "\n" + figureCenter;
     }
 }

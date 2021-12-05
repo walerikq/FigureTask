@@ -1,11 +1,10 @@
-package ru.example;
+package ru.figurePain;
 
-import ru.example.vizualization.Window;
-import ru.example.factory.CircleCreator;
-import ru.example.factory.FigureCreator;
-import ru.example.factory.RectangleCreator;
-import ru.example.factory.TriangleCreator;
-import ru.example.vizualization.Window;
+import ru.figurePain.vizualization.Window;
+import ru.figurePain.factory.CircleCreator;
+import ru.figurePain.factory.FigureCreator;
+import ru.figurePain.factory.RectangleCreator;
+import ru.figurePain.factory.TriangleCreator;
 
 import java.io.*;
 import java.util.*;
@@ -15,7 +14,7 @@ public class Main {
     final static File file = new File("figures.txt");
 
     public static void main(String[] args) {
-        ArrayList<Figure> figures = new ArrayList<>();//Создание коллекции фигур, куда входят коллекции треуг. прямоуг. и пр.
+        ArrayList<Figure> figures = initialiazeFromFile(file);//Создание коллекции фигур, куда входят коллекции треуг. прямоуг. и пр.
 
         ArrayList<Point> trianglePoints = new ArrayList<>();//создание списка точек для треугольника
 //        Triangle triangle1 = new Triangle(new ArrayList<Point>());
@@ -26,18 +25,15 @@ public class Main {
 //        Collections.addAll(figures, r1);
 //
 //
-        ArrayList<Point> rectanglePoints = new ArrayList<>();//создание списка точек для прямоугольника
-////        Rectangle rectangle = new Rectangle(new Point(0, 0), new Point(5, 5));
-        Collections.addAll(rectanglePoints, new Point(50, 50), new Point(50, 80), new Point(90, 80),new Point(90,50));
-        Rectangle r2 = new Rectangle(rectanglePoints);
-        Collections.addAll(figures, r2);
+//       1
+
 //
 //        printFigures(figures);
 
 
 //        ArrayList<Figure> f = initialiazeFromFile(file);
-//        menu(figures);
-        new Window(figures);
+        menu(figures);
+
     }
 
 
@@ -50,7 +46,8 @@ public class Main {
             System.out.println("3 - Изменить фигуру.");
             System.out.println("4 - Удалить фигуру.");
             System.out.println("5 - Записать в файл");
-            System.out.println("5 - Получить фигуры из файла");
+            System.out.println("6 - Получить фигуры из файла");
+            System.out.println("7 - Сделать отрисовку созданных фигур");
             System.out.println("0 - Выход.");
 
             int num = in.nextInt();
@@ -64,7 +61,8 @@ public class Main {
                     System.out.println("Какую фигуру хотите создать?");
                     FigureCreator figureCreator;
                     figureCreator = selectFigure();
-                    Figure figure = figureCreator.createFigure();
+                    ArrayList<Point> points = (ArrayList<Point>) FigureCreateHelper.createPointsFromInput();
+                    Figure figure = figureCreator.createFigure(points);
                     figures.add(figure);
                     break;
                 case 3:
@@ -87,6 +85,9 @@ public class Main {
                     break;
                 case 6:
                     initialiazeFromFile(file);
+                    break;
+                case 7:
+                    new Window((ArrayList<Figure>) figures);
                     break;
 
             }

@@ -1,6 +1,6 @@
-package ru.example.vizualization;
+package ru.figurePain.vizualization;
 
-import ru.example.Figure;
+import ru.figurePain.Figure;
 
 import javax.swing.*;
 import java.util.ArrayList;

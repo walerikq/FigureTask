@@ -1,4 +1,4 @@
-package ru.example;
+package ru.figurePain;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,7 +1,7 @@
-package ru.example.vizualization;
+package ru.figurePain.vizualization;
 
-import ru.example.Circle;
-import ru.example.Figure;
+import ru.figurePain.Circle;
+import ru.figurePain.Figure;
 
 import java.awt.*;
 import java.util.ArrayList;

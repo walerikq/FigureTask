@@ -1,4 +1,4 @@
-package ru.example;
+package ru.figurePain;
 
 import java.util.Scanner;
 
@@ -8,12 +8,13 @@ public class ScannerHelper {
     private ScannerHelper() {
     }
 
-    public static double getDoubleFromInput(String text) { // метод ввода только числа
+    public static double getDoubleFromInput(String text) {
         boolean ifInputErr = true;
         double number = 0;
         System.out.print(text);
-        while (ifInputErr) {    // цикл заставляет вводить только числа, не выводя ошибку InputMismatchException
-            if (READER.hasNextDouble()) {    // has имеет булевское значение
+        // цикл заставляет вводить только числа, не выводя ошибку InputMismatchException
+        while (ifInputErr) {
+            if (READER.hasNextDouble()) {
                 number = READER.nextDouble();
                 ifInputErr = false;
             } else {
@@ -24,11 +25,13 @@ public class ScannerHelper {
         return number;
     }
 
-    public static int getIntFromInput(String text) { // метод ввода только числа
+    // метод ввода только целого числа
+    public static int getIntFromInput(String text) {
         boolean ifInputErr = true;
         int number = 0;
         System.out.print(text);
-        while (ifInputErr) {    // цикл заставляет вводить только числа, не выводя ошибку InputMismatchException
+        // цикл заставляет вводить только числа, не выводя ошибку InputMismatchException
+        while (ifInputErr) {
             if (READER.hasNextInt()) {
                 number = READER.nextInt();
                 ifInputErr = false;
@@ -43,10 +46,6 @@ public class ScannerHelper {
     public static boolean isYes(String text) {
         System.out.print(text);
         String answer = READER.next().toLowerCase().trim().replaceAll("\\p{P}", "");
-        return "y".equals(answer) || "yes".equals(answer) || "да".equals(answer);
-    }
-
-    public static void close() {
-        READER.close();
+        return "y".equals(answer) || "yes".equals(answer) || "да".equals(answer) || "ok".equals(answer);
     }
 }
