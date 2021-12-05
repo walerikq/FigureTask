@@ -17,10 +17,11 @@ class PolygonTest {
         Point a = new Point(0, 0);
         Point b = new Point(0, 3);
         Point c = new Point(4, 3);
-        Collections.addAll(points, a, b, c);
+        Point d = new Point(4, 0);
+        Collections.addAll(points, a, b, c,d);
         Polygon polygon = new Polygon(points);
         double actual = polygon.getArea();
-        Assertions.assertEquals(6, actual);
+        Assertions.assertEquals(12, actual);
     }
 
     @Test
@@ -41,6 +42,7 @@ class PolygonTest {
         Point a = new Point(0, 0);
         Point b = new Point(0, 3);
         Point c = new Point(4, 3);
+
         Collections.addAll(points, a, b, c);
         Polygon polygon = new Polygon(points);
         Point actual = polygon.getCenter();
